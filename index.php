@@ -21,9 +21,9 @@
      }
   };
 
-  $pagamenti = [];
-  $pagamenti[] = new Pagamento(26, 800, "pending");
-  $pagamenti[] = new Pagamento(27, 500, "accepted");
+  //$pagamenti = [];
+  //$pagamenti[] = new Pagamento(26, 800, "pending");
+  //$pagamenti[] = new Pagamento(27, 500, "accepted");
 
   //foreach ($pagamenti as $pagamento) {
   //  var_dump($pagamento); echo '<br>';
@@ -65,17 +65,5 @@
 
     $pagamento->printMe();
   }
-
-  //foreach ($pagamenti as $pagamento) {
-
-  //  if ($pagamento=status) {
-  //    echo $pagamento->id. " : ". "  ".  $pagamento->price. "<br>";
-  //  }
-
-  //  if ($pagamento->status) {
-  //    echo $pagamento->id. " : ". "  ".  $pagamento->price. "<br>";
-  //  }
-  //}
-
 
  ?>
