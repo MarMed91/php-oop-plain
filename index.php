@@ -12,6 +12,13 @@
        $this->price = $price;
        $this->status = $status;
      }
+
+     function printMe() {
+
+       echo   $this->status. " : ". "<br>".
+              $this->id. " : ".
+              $this->price. "<br>";
+     }
   };
 
   $pagamenti = [];
@@ -55,9 +62,20 @@
    }
 
   foreach ($pagamenti as $pagamento) {
-    echo $pagamento->status. " : ". "<br>". "<br>".  $pagamento->id. " : ". "  ".  $pagamento->price. "<br>";
+
+    $pagamento->printMe();
   }
 
+  //foreach ($pagamenti as $pagamento) {
+
+  //  if ($pagamento=status) {
+  //    echo $pagamento->id. " : ". "  ".  $pagamento->price. "<br>";
+  //  }
+
+  //  if ($pagamento->status) {
+  //    echo $pagamento->id. " : ". "  ".  $pagamento->price. "<br>";
+  //  }
+  //}
 
 
  ?>
