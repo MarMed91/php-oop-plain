@@ -15,8 +15,8 @@
   };
 
   $pagamenti = [];
-  $pagamenti[] = new Pagamenti(26, 800, "pending");
-  $pagamenti[] = new Pagamenti(27, 500, "accepted");
+  $pagamenti[] = new Pagamento(26, 800, "pending");
+  $pagamenti[] = new Pagamento(27, 500, "accepted");
 
   foreach ($pagamenti as $pagamento) {
     var_dump($pagamento); echo '<br>';
@@ -36,34 +36,26 @@
   }
 
   $sql = "
-            SELECT status
+            SELECT *
             FROM pagamenti
-            GROUP BY $status
+
   ";
 
   $result = $conn->query($sql);
 
-  $pending = [];
-  $accepted = [];
-  $rejected = [];
+  $pagamenti = [];
   if ($result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
-        $pending[]=
-         new Pagamento($row["status"]["pending"]);
 
-        $accepted[] =
-         new Pagamento($row["status"]["accepted"]);
-
-        $rejected[] =
-         new Pagamento($row["status"]["rejected"]);
-
+          $pagamenti[]=
+          new Pagamento($row["id"],
+                        $row["price"],
+                        $row["status"]);
       }
    }
 
-   $conn->close();
 
-   foreach ($res as $pagamento) {
 
-   }
+
 
  ?>
