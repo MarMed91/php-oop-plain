@@ -50,20 +50,43 @@
 
   $result = $conn->query($sql);
 
-  $pagamenti = [];
+  $pending = [];
+  $rejected = [];
+  $accepted = [];
+
   if ($result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
 
-          $pagamenti[]=
+          $pagamento=
           new Pagamento($row["id"],
                         $row["price"],
                         $row["status"]);
+
+        if ($pagamento->status == "pending") {
+
+          $pending[] = $pagamento;
+        }elseif ($pagamento->status == "rejected") {
+
+          $rejected[] = $pagamento;
+        }elseif ($pagamento->status == "accepted") {
+
+          $accepted[] = $pagamento;
+        }
       }
    }
+   $conn->close();
 
-  foreach ($pagamenti as $pagamento) {
+   foreach ($pending as $value) {
+       $value->printMe();
+     }
+     echo "<br>";
+     foreach ($rejected as $value) {
+       $value->printMe();
+     }
+     echo "<br>";
+     foreach ($accepted as $value) {
+       $value->printMe();
+     }
 
-    $pagamento->printMe();
-  }
 
  ?>
