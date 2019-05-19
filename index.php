@@ -15,8 +15,7 @@
 
      function printMe() {
 
-       echo   $this->status. " : ". "<br>".
-              $this->id. " : ".
+       echo   $this->id. " : ".
               $this->price. "<br>";
      }
   };
@@ -76,14 +75,19 @@
    }
    $conn->close();
 
+    echo " Pending: ". "<br>";
    foreach ($pending as $value) {
        $value->printMe();
      }
      echo "<br>";
+
+     echo "Rejected: ". "<br>";
      foreach ($rejected as $value) {
        $value->printMe();
      }
      echo "<br>";
+     
+     echo "Accepted: ". "<br>";
      foreach ($accepted as $value) {
        $value->printMe();
      }
